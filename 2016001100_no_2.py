@@ -12,17 +12,14 @@ def pega_valor(valor_publicado):
 
 
 sub = rospy.Subscriber('/topic', String, pega_valor)
-#soma = 0
 
-#for digito in str(matricula):
-#    soma += int(digito)
     
 def timerCallBack(event):
     soma = 0
     for digito in str(matricula):
         soma += int(digito)
     msg = String()
-    msg.data = soma
+    msg.data = str(soma)
     pub.publish(msg)
     
     
